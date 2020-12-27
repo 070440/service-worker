@@ -5,6 +5,10 @@ self.addEventListener("install", e => {
     );
 });
 
+this.addEventListener("activate", function(event) {
+    console.log('Service Worker activate');
+});
+
 self.addEventListener("fetch", e => {
     e.respondWith(
         caches.match(e.request).then(function(response) {
